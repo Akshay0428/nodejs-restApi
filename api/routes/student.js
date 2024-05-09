@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const checkAuth = require('../middleware/check-auth');
 
 //get request
-router.get('/',(req,res,next)=>{
+router.get('/',checkAuth,(req,res,next)=>{
     Student.find()
     .then(result=>{
         res.status(200).json({
